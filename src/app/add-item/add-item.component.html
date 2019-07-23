@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-title>Add Item </mat-card-title>
+        <form #itemForm="ngForm" (ngSubmit)="saveItem(itemForm)">
+        <mat-card-content>
+
+        
+        <div>
+            <label for="1">Item name: </label>
+            <input #1 matInput placeholder="enter name"  type="text"
+                #itemName="ngModel"  [(ngModel)]="item.name" name="name" required>
+        </div>
+
+        <div>   
+            <label for="2">Amount: </label>
+                <input #2 matInput placeholder="enter amount" type="number"
+                       #amount="ngModel" [(ngModel)]="item.amount" name="amount" required>
+               </div>
+        <div>
+            <label for="3">Invertory Code: </label>
+            <input #3 matInput placeholder="enter code number" type="number"
+                 #inventoryCode="ngModel" [(ngModel)]="item.code" 
+                 name="code" required>
+        </div>   
+
+        
+
+        </mat-card-content>
+       <mat-card-actions>
+      <button mat-raised-button  type="submit"
+              [disabled]="!itemForm.form.valid">Save</button>
+   
+      <button routerLink="/all-items">Cancel</button> 
+    </mat-card-actions>   
+    </form>
+      </mat-card>
+

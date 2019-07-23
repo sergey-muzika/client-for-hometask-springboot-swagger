@@ -1,0 +1,27 @@
+<mat-card>
+        <mat-card-title>Add/Reduce amount </mat-card-title>
+        <h3>Add or reduce amount of specific id number</h3>
+        <h4>Use '-' sign for withdrawal</h4>
+            <form #itemForm="ngForm" (ngSubmit)="depwidsave()">
+            <mat-card-content>
+                    <div>
+                            <label for="1">Item id: </label>
+                            <input #1 matInput placeholder="enter ID"  type="number"
+                                [(ngModel)]="id" name="id"  required>
+                        </div>
+                
+                        <div>   
+                            <label for="2">Amount: </label>
+                                <input #2 matInput placeholder="use +/-" type="number"
+                                    [(ngModel)]="amount" name="amount" required>
+                               </div>
+
+                </mat-card-content>
+                <mat-card-actions>
+               <button mat-raised-button  type="submit"
+               [disabled]="!itemForm.form.valid" >Save</button>
+            
+               <button routerLink="/all-items">Cancel</button> 
+             </mat-card-actions>   
+             </form>
+               </mat-card>

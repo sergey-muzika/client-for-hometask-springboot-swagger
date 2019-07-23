@@ -1,0 +1,37 @@
+<h1>Welcome to simple angular client! </h1>
+<p>* This client manipulates Swagger api app located at <a href="http://localhost:8080/swagger-ui.html#/">localhost:8080</a></p>
+<h3>List of all items</h3>
+
+<button mat-raised-button [routerLink]="['/add-item']" > Add item </button>
+<button mat-raised-button [routerLink]="['/dep-wid']" > Deposit/Withdraw </button>       
+<button mat-raised-button (click)="deleteItem(IdtoDelete.value)" type="submit" >Delete</button>
+<input #IdtoDelete placeholder="Item ID to delete"  type="text" required> 
+
+
+
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="items">
+
+<ng-container matColumnDef="id">
+  <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+  <mat-cell *matCellDef="let item"> {{item.item_number}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> NAME </mat-header-cell>
+    <mat-cell *matCellDef="let item"> {{item.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef> AMOUNT </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.amount}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="code">
+        <mat-header-cell *matHeaderCellDef> INVERTORY CODE </mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.code}} </mat-cell>
+        </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
